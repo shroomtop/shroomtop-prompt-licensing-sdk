@@ -1,0 +1,8 @@
+Shroomtop420® Licensing SDK License
+
+UUID: shroomtop-licensing-sdk-core-v1
+Author: Shroomtop420®
+Date: 2025-05-05T07:10:43.301741Z
+License: CC-BY-NC-SA
+
+Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International

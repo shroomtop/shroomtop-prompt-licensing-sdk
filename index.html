@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" class="p-4 bg-gray-100 text-gray-900">
+<head>
+  <meta charset="UTF-8">
+  <title>Shroomtop420® Prompt Licensing GUI v1.1</title>
+  <script src="https://cdn.jsdelivr.net/npm/crypto-js@4.1.1/crypto-js.min.js"></script>
+  <script>
+    const licenses = {
+      "CC-BY-NC-SA": "Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International",
+      "MIT": "MIT License - Open Source with Attribution",
+      "Custom": "This is a custom license. You must provide your own legal text."
+    };
+    function generateUUID() {
+      return crypto.randomUUID ? crypto.randomUUID() :
+        'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, c => {
+          const r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+          return v.toString(16);
+        });
+    }
+    function hashSHA256(input) {
+      return CryptoJS.SHA256(input).toString(CryptoJS.enc.Hex);
+    }
+    function generateFiles() {
+      const prompt = document.getElementById("prompt").value;
+      const author = document.getElementById("author").value;
+      const licenseKey = document.getElementById("license").value;
+      const uuid = generateUUID();
+      const date = new Date().toISOString();
+      const licenseText = licenses[licenseKey];
+      const licenseFile = "Shroomtop420® Prompt License\n\nUUID: " + uuid + 
+                          "\nAuthor: " + author + 
+                          "\nDate: " + date + 
+                          "\nLicense: " + licenseKey + 
+                          "\n\n" + licenseText;
+      const meta = {
+        uuid,
+        author,
+        date,
+        license: licenseKey,
+        licenseText,
+        promptHash: hashSHA256(prompt)
+      };
+      const metaStr = JSON.stringify(meta, null, 2);
+      document.getElementById("preview").textContent = licenseFile;
+      triggerDownload("LICENSE.txt", licenseFile.replace(/\n/g, '\r\n'));
+      triggerDownload("promptmeta.json", metaStr);
+    }
+    function triggerDownload(filename, text) {
+      const blob = new Blob([text], {type: 'text/plain'});
+      const a = document.createElement("a");
+      a.href = URL.createObjectURL(blob);
+      a.download = filename;
+      a.click();
+    }
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="max-w-xl mx-auto space-y-4">
+  <h1 class="text-2xl font-bold">Shroomtop420® Prompt Licensing GUI v1.1</h1>
+  <textarea id="prompt" class="w-full h-32 p-2 border rounded" placeholder="Paste your prompt here..."></textarea>
+  <input id="author" class="w-full p-2 border rounded" placeholder="Author name (e.g. Shroomtop420®)">
+  <select id="license" class="w-full p-2 border rounded">
+    <option value="CC-BY-NC-SA">CC BY-NC-SA</option>
+    <option value="MIT">MIT</option>
+    <option value="Custom">Custom</option>
+  </select>
+  <button onclick="generateFiles()" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+    Generate LICENSE.txt + promptmeta.json
+  </button>
+  <pre id="preview" class="bg-white p-2 rounded border text-sm overflow-x-auto whitespace-pre-wrap"></pre>
+</body>
+</html>
