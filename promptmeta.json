@@ -1,9 +1,6 @@
 {
-  "uuid": "shroomtop-licensing-sdk-core-v1",
-  "author": "Shroomtop420\u00ae",
-  "date": "2025-05-05T07:10:43.301741Z",
-  "license": "CC-BY-NC-SA",
-  "licenseText": "Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International",
-  "promptHash": "5615e3a624570bd57da17bcb22c2403fe3466d87fdbffaadfe51596ea00a11d3",
-  "description": "Licensing metadata for the Shroomtop420\u00ae Prompt Licensing SDK itself."
+  "name": "shroomtop-prompt-licensing-sdk",
+  "type": "SDK",
+  "features": ["SHA256", "UUID", "Offline", "No Dependencies"],
+  "license": "MIT"
 }

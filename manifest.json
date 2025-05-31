@@ -1,0 +1,8 @@
+{
+  "name": "Shroomtop Prompt Licensing SDK",
+  "version": "1.0.0",
+  "description": "Antifragile HTML5 SDK for secure AI prompt licensing, UUID & SHA256 metadata, and offline-first license automation.",
+  "icons": [],
+  "start_url": "index.html",
+  "display": "standalone"
+}
