@@ -74,3 +74,12 @@ MIT — see LICENSE.txt
 ![License](https://img.shields.io/github/license/shroomtop/shroomtop-prompt-licensing-sdk)
 ![Last Commit](https://img.shields.io/github/last-commit/shroomtop/shroomtop-prompt-licensing-sdk)
 [![GitHub Actions](https://img.shields.io/github/actions/workflow/status/shroomtop/shroomtop-prompt-licensing-sdk/ci.yml?label=CI)](https://github.com/shroomtop/shroomtop-prompt-licensing-sdk/actions)
+
+<!-- SHROOMTOP420-MONETIZATION-BLOCK-START -->
+## 🚀 Support & Commercial Use
+
+- **Buy full-access or commercial license:** [Pay with Stripe](https://buy.stripe.com/aFa6oHeG74DQ8ZB3LubQY01)
+- **Donate or support ongoing dev:** [Buy Me A Coffee](https://buymeacoffee.com/shroomtop420)
+
+> *Commercial use requires license. See LICENSE for terms.*
+<!-- SHROOMTOP420-MONETIZATION-BLOCK-END -->
